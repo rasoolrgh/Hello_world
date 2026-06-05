@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/style.css">
-    <title>Hello World!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Upgrade Animation</title>
 </head>
 
-<body class="min-h-screen bg-zinc-900 flex items-center justify-center">
-    <main>
-        <div class="flex flex-col items-center
-            p-12
-            rounded-3xl
-            border border-zinc-700
-            shadow-lg
-            hover:shadow-amber-500/30
-            hover:border-amber-400
-            transition-all duration-300">
-            <h1 class="text-5xl md:text-8xl
-                font-bold
-                bg-linear-to-r
-                from-pink-500
-                via-red-500
-                to-yellow-500
-                text-transparent
-                bg-clip-text">
-                Hello world
-            </h1>
-            <span class="mt-6
-                text-zinc-300
-                hover:text-yellow-400
-                transition-colors">
-                New Version v2.1
-            </span>
-        </div>
-    </main>
-</body>
+<body class="min-h-screen flex items-center justify-center bg-zinc-900 overflow-hidden">
 
+  <!-- Circle Effect -->
+  <div id="circle"
+    class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+    w-0 h-0 rounded-full bg-yellow-400 transition-all duration-700">
+  </div>
+
+  <!-- Main Card -->
+  <div class="relative z-10 flex flex-col items-center p-10 rounded-3xl border border-zinc-700 bg-zinc-900 text-white">
+
+    <h1 class="text-5xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text">
+      Hello World
+    </h1>
+
+    <span id="version" class="mt-4 text-zinc-300 text-xl">
+      v2.1
+    </span>
+
+    <span class="mt-4
+    text-gray-400
+    text-sm 
+    ">
+        Now Add JavaScript!
+    </span>
+
+    <!-- Sliding Panel -->
+    <div id="panel"
+      class="mt-0 max-h-0 opacity-0 overflow-hidden transition-all duration-700">
+      <div class="mt-4 px-6 py-3 bg-white/10 rounded-xl">
+        🚀 System Upgraded Successfully
+      </div>
+    </div>
+
+    <button onclick="upgrade()"
+      class="mt-6 px-6 py-3 bg-yellow-500 text-black rounded-xl hover:scale-105 transition">
+      Upgrade
+    </button>
+
+  </div>
+
+  <script>
+    function upgrade() {
+      const circle = document.getElementById("circle");
+      const version = document.getElementById("version");
+      const panel = document.getElementById("panel");
+
+      // 1. circle expand
+      circle.classList.add("w-[200vmax]", "h-[200vmax]");
+
+      // 2. change version
+      version.innerText = "v3.0";
+
+      // 3. show panel
+      panel.classList.remove("max-h-0", "opacity-0");
+      panel.classList.add("max-h-40", "opacity-100");
+
+    }
+  </script>
+
+</body>
 </html>
