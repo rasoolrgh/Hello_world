@@ -1,0 +1,26 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/rasoolrgh/Hello_world#readme",
+  "bugs": {
+    "url": "https://github.com/rasoolrgh/Hello_world/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasoolrgh/Hello_world.git"
+  },
+  "license": "ISC",
+  "author": "rasool_gh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/index.css -o ./public/css/style.css ",
+    "watch": "npx @tailwindcss/cli -i ./src/index.css -o ./public/css/style.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0"
+  }
+}
